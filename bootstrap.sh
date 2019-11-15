@@ -144,6 +144,31 @@ function install_pip_packages() {
 
 }
 
+function install_yarn_packages() {
+    # prettier for Neoformat to auto-format files
+    # typescript for YouCompleteMe
+    yarn_packages=(prettier typescript vmd create-react-app gatsby-cli netlify-cli)
+    info "Installing yarn packages \"${yarn_packages[*]}\""
+
+    yarn_list_outcome=$(yarn global list)
+    for package_to_install in "${yarn_packages[@]}"
+    do
+        if echo "$yarn_list_outcome" | \
+            grep --ignore-case "$package_to_install" &> /dev/null; then
+            substep "\"${package_to_install}\" already exists"
+        else
+            if yarn global add "$package_to_install"; then
+                substep "Package \"${package_to_install}\" installation succeeded"
+            else
+                error "Package \"${package_to_install}\" installation failed"
+                exit 1
+            fi
+        fi
+    done
+
+    success "yarn packages successfully installed"
+}
+
 function clone_dotfiles_repo() {
     info "Cloning dotfiles repository into ${DOTFILES_REPO}"
     if test -e $DOTFILES_REPO; then
