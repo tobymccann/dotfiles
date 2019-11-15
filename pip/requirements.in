@@ -1,0 +1,6 @@
+mypy
+pip-tools
+powerline-status
+requests
+tmuxp
+virtualenv
