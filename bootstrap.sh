@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+echo Configuring macOS
+
+set -e
 
 main() {
     ask_for_sudo
@@ -33,18 +36,11 @@ function ask_for_sudo() {
 
 function install_xcode_command_line_tools() {
     info "Installing Xcode command line tools"
-    if softwareupdate --history | grep --silent "Command Line Tools"; then
-        success "Xcode command line tools already exists"
+    if [[ $(xcode-select --version) ]]; then
+      echo Xcode command tools already installed
     else
-        xcode-select --install
-        read -n 1 -s -r -p "Press any key once installation is complete"
-
-        if softwareupdate --history | grep --silent "Command Line Tools"; then
-            success "Xcode command line tools installation succeeded"
-        else
-            error "Xcode command line tools installation failed"
-            exit 1
-        fi
+      echo "Installing Xcode commandline tools"
+      $(xcode-select --install)
     fi
 }
 
@@ -65,7 +61,9 @@ function install_homebrew() {
 
 function install_packages_with_brewfile() {
     info "Installing Brewfile packages"
-
+    
+    export HOMEBREW_CASK_OPTS="--no-quarantine --appdir=/Applications"
+    
     TAP=${DOTFILES_REPO}/brew/Brewfile_tap
     BREW=${DOTFILES_REPO}/brew/Brewfile_brew
     CASK=${DOTFILES_REPO}/brew/Brewfile_cask
