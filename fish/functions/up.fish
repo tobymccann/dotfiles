@@ -1,5 +1,6 @@
+# Defined in /Users/jkennemer/.config/fish/functions/up.fish @ line 1
 function up
-    echo -e '####################################\n# Software Update \n####################################'
+	echo -e '####################################\n# Software Update \n####################################'
     sudo softwareupdate --install --all
 
     echo -e '####################################\n# Brew \n####################################'
