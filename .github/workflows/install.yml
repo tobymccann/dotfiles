@@ -1,0 +1,24 @@
+name: install
+
+on: 
+  push:
+    branches:
+    - master
+  schedule:
+    - cron:  '0 13 * * 6'
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macOS-latest, macOS-10.15] 
+    steps:
+    - uses: actions/checkout@v1
+    - name: Check versions of pre-installed software/system
+      run: ./.cisupport/pre.sh
+    - name: Execute full install
+      run:  ./setup.sh
+    - name: Check installed versions 
+      run: ./.cisupport/post.sh

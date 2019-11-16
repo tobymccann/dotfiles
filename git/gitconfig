@@ -23,3 +23,6 @@
 ############################################################################
 [core]
 	autocrlf = input  # bit.ly/2RLLxed
+[user]
+	name = tobymccann
+	email = jason@kennemers.com

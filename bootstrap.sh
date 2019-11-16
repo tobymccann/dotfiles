@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 echo Configuring macOS
+source .cisupport/is_ci.sh
 
 set -e
 
@@ -33,6 +34,8 @@ function ask_for_sudo() {
         exit 1
     fi
 }
+
+
 
 function install_xcode_command_line_tools() {
     info "Installing Xcode command line tools"
