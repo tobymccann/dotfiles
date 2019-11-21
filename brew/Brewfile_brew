@@ -46,3 +46,6 @@ brew "wifi-password"
 brew "yarn"
 brew "youtube-dl"
 brew "z"
+# PHP Development
+brew "php@7.3"
+brew "composer"
