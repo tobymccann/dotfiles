@@ -35,8 +35,6 @@ function ask_for_sudo() {
     fi
 }
 
-
-
 function install_xcode_command_line_tools() {
     info "Installing Xcode command line tools"
     if [[ $(xcode-select --version) ]]; then
@@ -241,10 +239,8 @@ function setup_tmux() {
     fi
 
     substep "Installing all plugins"
-
     # sourcing .tmux.conf is necessary for tpm
-    tmux source-file ~/.tmux.conf 2> /dev/null
-
+    #tmux source-file ~/.tmux.conf 2> /dev/null
     if ~/.tmux/plugins/tpm/bin/./install_plugins &> /dev/null; then
         substep "Plugins installations succeeded"
     else

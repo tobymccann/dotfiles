@@ -56,3 +56,12 @@ set -q XDG_DATA_HOME
     or set  --global --export OMF_PATH "$HOME/.local/share/omf"
 source $OMF_PATH/init.fish
 
+
+############################################################################
+# Configuration for Fisher
+############################################################################
+if not functions -q fisher
+    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+    fish -c fisher
+end

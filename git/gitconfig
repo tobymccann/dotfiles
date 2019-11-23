@@ -23,6 +23,7 @@
 ############################################################################
 [core]
 	autocrlf = input  # bit.ly/2RLLxed
+	excludesfile = /Users/jkennemer/.gitignore
 [user]
 	name = tobymccann
 	email = jason@kennemers.com

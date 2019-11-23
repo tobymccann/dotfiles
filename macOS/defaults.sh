@@ -30,6 +30,8 @@ function configure_numi() {
 function configure_iterm2() {
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -int 1
     defaults write com.googlecode.iterm2 PrefsCustomFolder -string ~/personal/dotfiles/iTerm2
+    # Don’t display the annoying prompt when quitting iTerm
+    defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 }
 
 function configure_system() {
@@ -38,6 +40,14 @@ function configure_system() {
 
     # Disable Gatekeeper for getting rid of unknown developers error
     sudo spctl --master-disable
+    # Set computer name
+    sudo scutil --set ComputerName "cowboy"
+    sudo scutil --set LocalHostName "cowboy"
+    sudo scutil --set HostName "cowboy"
+    #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "cowboy"
+
+    # Store Identities in the KeyChain
+    sudo ssh-add -K
     # Disable natural scrolling
     defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
     # Disable macOS startup chime sound
@@ -52,6 +62,16 @@ function configure_system() {
     defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
     # Enable full keyboard access for all controls which enables Tab selection in modal dialogs
     defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+    # Restart automatically if the computer freezes
+    sudo systemsetup -setrestartfreeze on
+
+    ###############################################################################
+    # SSD-specific tweaks                                                         #
+    ###############################################################################
+
+    # Disable hibernation (speeds up entering sleep mode)
+    sudo pmset -a hibernatemode 0
+
 }
 
 function configure_dock() {
@@ -78,27 +98,34 @@ function configure_dock() {
     # Disable the Launchpad gesture (pinch with thumb and three fingers)
     defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
-    ## Hot corners
-    ## Possible values:
-    ##  0: no-op
-    ##  2: Mission Control
-    ##  3: Show application windows
-    ##  4: Desktop
-    ##  5: Start screen saver
-    ##  6: Disable screen saver
-    ##  7: Dashboard
-    ## 10: Put display to sleep
-    ## 11: Launchpad
-    ## 12: Notification Center
-    ## Top left screen corner → Mission Control
-    defaults write com.apple.dock wvous-tl-corner -int 0
+        # Hot corners
+    # Possible values:
+    #  0: no-op
+    #  2: Mission Control
+    #  3: Show application windows
+    #  4: Desktop
+    #  5: Start screen saver
+    #  6: Disable screen saver
+    #  7: Dashboard
+    # 10: Put display to sleep
+    # 11: Launchpad
+    # 12: Notification Center
+
+    # Top left screen corner → Mission Control
+    defaults write com.apple.dock wvous-tl-corner -int 2
     defaults write com.apple.dock wvous-tl-modifier -int 0
-    ## Top right screen corner → Nothing
-    defaults write com.apple.dock wvous-tr-corner -int 0
+
+    # Top right screen corner → Nofication Center
+    defaults write com.apple.dock wvous-tr-corner -int 12
     defaults write com.apple.dock wvous-tr-modifier -int 0
-    ## Bottom left screen corner → Nothing
-    defaults write com.apple.dock wvous-bl-corner -int 0
-    defaults write com.apple.dock wvous-bl-modifier -int 0
+
+    # Bottom right screen corner → Desktop
+    defaults write com.apple.dock wvous-br-corner -int 4
+    defaults write com.apple.dock wvous-br-modifier -int 0
+
+    # Bottom left screen corner → Desktop
+    defaults write com.apple.dock wvous-bl-corner -int 4
+    defaults write com.apple.dock wvous-bl-modifier -int 0 
     open "Dock"
 }
 
@@ -138,6 +165,16 @@ function configure_finder() {
     defaults write com.apple.finder FXPreferredViewStyle -string clmv
     # Disable the warning before emptying the Trash
     defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+    # Show the ~/Library folder
+    chflags nohidden ~/Library
+
+    # Show the /Volumes folder
+    sudo chflags nohidden /Volumes
+
+    # Remove Dropbox’s green checkmark icons in Finder
+    #file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
+    #[ -e "${file}" ] && mv -f "${file}" "${file}.bak"
 }
 
 function quit() {
