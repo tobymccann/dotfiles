@@ -45,11 +45,11 @@ function configure_system() {
     sudo scutil --set LocalHostName "cowboy"
     sudo scutil --set HostName "cowboy"
     #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "cowboy"
-
+    git config --global core.excludesfile ~/.gitignore
     # Store Identities in the KeyChain
     sudo ssh-add -K
     # Disable natural scrolling
-    defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+    defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
     # Disable macOS startup chime sound
     sudo defaults write com.apple.loginwindow LoginHook $LOGIN_HOOK_PATH
     sudo defaults write com.apple.loginwindow LogoutHook $LOGOUT_HOOK_PATH
@@ -186,8 +186,8 @@ function open() {
     app=$1
     osascript << EOM
 tell application "$app" to activate
-tell application "System Events" to tell process "iTerm2"
-set frontmost to true
+tell application "System Events"
+set frontmost of process "iTerm2" to true
 end tell
 EOM
 }

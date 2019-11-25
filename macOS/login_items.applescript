@@ -1,19 +1,13 @@
-# "¬" charachter tells osascript that the line continues
-set login_item_list to {¬
-    "Alfred 4",¬
-    "Bartender 3",¬
-    "Docker",¬
-    "Dropbox",¬
-    "Hammerspoon",¬
-    "NordVPN",¬
-    "Numi",¬
-    "iTerm"¬
-}
+# "�" charachter tells osascript that the line continues
+set login_item_list to {"Alfred 4", "Docker", "Dropbox", "Hammerspoon", "NordVPN IKE", "Numi", "iTerm"}
 
-tell application "System Events" to delete every login item
+#tell application "System Events" 
+#    get the name of every login item
+#    delete every login item
+#end tell
 
 repeat with login_item in login_item_list
     tell application "System Events"
-        make login item with properties {name: login_item, path: ("/Applications/" & login_item & ".app"), hidden: true }
+        make login item at end with properties {name: login_item, path: ("/Applications/" & login_item & ".app"), hidden: false}
     end tell
 end repeat

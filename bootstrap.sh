@@ -88,7 +88,7 @@ function install_packages_with_brewfile() {
         if brew bundle --file="$TAP"; then
             substep "Brewfile_tap installation succeeded"
 
-            export HOMEBREW_CASK_OPTS="--no-quarantine"
+            #export HOMEBREW_CASK_OPTS="--no-quarantine"
             if (echo $BREW; echo $CASK; echo $MAS) | parallel --verbose --linebuffer -j 3 brew bundle --file={}; then
                 success "Brewfile packages installation succeeded"
             else
@@ -256,6 +256,7 @@ function setup_symlinks() {
 
     info "Setting up symlinks"
     symlink "git" ${DOTFILES_REPO}/git/gitconfig ~/.gitconfig
+    symlink "gitignore" ${DOTFILES_REPO}/git/gitignore ~/.gitignore
     symlink "hammerspoon" ${DOTFILES_REPO}/hammerspoon ~/.hammerspoon
     symlink "karabiner" ${DOTFILES_REPO}/karabiner ~/.config/karabiner
     symlink "powerline" ${DOTFILES_REPO}/powerline ${POWERLINE_ROOT_REPO}/powerline/config_files
@@ -268,6 +269,7 @@ function setup_symlinks() {
     symlink "fish:completions" ${DOTFILES_REPO}/fish/completions ~/.config/fish/completions
     symlink "fish:functions"   ${DOTFILES_REPO}/fish/functions   ~/.config/fish/functions
     symlink "fish:config.fish" ${DOTFILES_REPO}/fish/config.fish ~/.config/fish/config.fish
+    symlink "fish:fishfile"    ${DOTFILES_REPO}/fish/fishfile    ~/.config/fish/fishfile
     symlink "fish:oh_my_fish"  ${DOTFILES_REPO}/fish/oh_my_fish  ~/.config/omf
 
     success "Symlinks successfully setup"
