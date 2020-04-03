@@ -6,7 +6,6 @@ cask "discord"
 cask "docker"
 cask "dropbox"
 cask "homebrew/cask-versions/firefox-developer-edition"
-cask "font-fira-mono-for-powerline" # for iTerm2 powerline
 cask "font-firacode-nerd-font"
 cask "font-hack-nerd-font"
 cask "fork"
