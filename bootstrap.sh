@@ -257,6 +257,7 @@ function setup_symlinks() {
     symlink "git" ${DOTFILES_REPO}/git/gitconfig ~/.gitconfig
     symlink "gitignore" ${DOTFILES_REPO}/git/gitignore ~/.gitignore
     symlink "hammerspoon" ${DOTFILES_REPO}/hammerspoon ~/.hammerspoon
+    symlink "hyper" ${DOTFILES_REPO}/hyper.js ~/.hyper.js
     symlink "karabiner" ${DOTFILES_REPO}/karabiner ~/.config/karabiner
     symlink "tmux" ${DOTFILES_REPO}/tmux/tmux.conf ~/.tmux.conf
     symlink "vim" ${DOTFILES_REPO}/vim/vimrc ~/.vimrc
