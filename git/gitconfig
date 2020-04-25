@@ -25,5 +25,10 @@
 	autocrlf = input  # bit.ly/2RLLxed
 	excludesfile = /Users/jkennemer/.gitignore
 [user]
-	name = tobymccann
-	email = jason@kennemers.com
+	name = Jason Kennemer
+	email = jason@valescoagency.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
