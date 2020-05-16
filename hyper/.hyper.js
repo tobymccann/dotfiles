@@ -6,14 +6,14 @@ module.exports = {
   config: {
     // choose either `'stable'` for receiving highly polished,
     // or `'canary'` for less polished but more frequent updates
-    updateChannel: "stable",
+    updateChannel: "canary",
 
     // default font size in pixels for all tabs
     fontSize: 12,
 
     // font family with optional fallbacks
     fontFamily:
-      'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+      '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: "normal",
@@ -100,9 +100,9 @@ module.exports = {
     // Material Theme bitches
 
     MaterialTheme: {
-      theme: "Palenight",
-      backgroundOpacity: "0.4",
-      accentColor: "#64FFDA",
+      theme: "darker",
+      backgroundOpacity: "0.5",
+      accentColor: "#80CBC4",
       vibrancy: "dark",
     },
 
