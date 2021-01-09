@@ -10,7 +10,7 @@ main() {
     clone_dotfiles_repo
     install_homebrew
     install_packages_with_brewfile
-    change_shell_to_fish
+    change_shell_to_zsh
     install_pip_packages
     setup_symlinks # needed for setup_vim and setup_tmux
     setup_vim
@@ -50,8 +50,8 @@ function install_homebrew() {
     if hash brew 2>/dev/null; then
         success "Homebrew already exists"
     else
-        url=https://raw.githubusercontent.com/Homebrew/install/master/install
-        if yes | /usr/bin/ruby -e "$(curl -fsSL ${url})"; then
+        url=https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+        if yes | /bin/bash -c "$(curl -fsSL ${url})"; then
             success "Homebrew installation succeeded"
         else
             error "Homebrew installation failed"
@@ -98,34 +98,6 @@ function install_packages_with_brewfile() {
         else
             error "Brewfile_tap installation failed"
             exit 1
-        fi
-    fi
-}
-
-function change_shell_to_fish() {
-    info "Fish shell setup"
-    if grep --quiet fish <<< "$SHELL"; then
-        success "Fish shell already exists"
-    else
-        user=$(whoami)
-        substep "Adding Fish executable to /etc/shells"
-        if grep --fixed-strings --line-regexp --quiet \
-            "/usr/local/bin/fish" /etc/shells; then
-            substep "Fish executable already exists in /etc/shells"
-        else
-            if echo /usr/local/bin/fish | sudo tee -a /etc/shells > /dev/null;
-            then
-                substep "Fish executable successfully added to /etc/shells"
-            else
-                error "Failed to add Fish executable to /etc/shells"
-                exit 1
-            fi
-        fi
-        substep "Switching shell to Fish for \"${user}\""
-        if sudo chsh -s /usr/local/bin/fish "$user"; then
-            success "Fish shell successfully set for \"${user}\""
-        else
-            error "Please try setting Fish shell again"
         fi
     fi
 }
@@ -249,7 +221,6 @@ function setup_tmux() {
     fi
     success "tmux successfully setup"
 }
-1.0825
 function setup_symlinks() {
     APPLICATION_SUPPORT=~/Library/Application\ Support
 
@@ -264,12 +235,6 @@ function setup_symlinks() {
 
     # Disable shell login message
     symlink "hushlogin" /dev/null ~/.hushlogin
-
-    symlink "fish:completions" ${DOTFILES_REPO}/fish/completions ~/.config/fish/completions
-    symlink "fish:functions"   ${DOTFILES_REPO}/fish/functions   ~/.config/fish/functions
-    symlink "fish:config.fish" ${DOTFILES_REPO}/fish/config.fish ~/.config/fish/config.fish
-    symlink "fish:fishfile"    ${DOTFILES_REPO}/fish/fishfile    ~/.config/fish/fishfile
-    symlink "fish:oh_my_fish"  ${DOTFILES_REPO}/fish/oh_my_fish  ~/.config/omf
 
     success "Symlinks successfully setup"
 }

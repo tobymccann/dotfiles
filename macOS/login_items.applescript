@@ -1,5 +1,5 @@
-# "Â" charachter tells osascript that the line continues
-set login_item_list to {"Alfred 4", "Docker", "Dropbox", "Hammerspoon", "NordVPN IKE", "Numi", "iTerm"}
+# "ï¿½" charachter tells osascript that the line continues
+set login_item_list to {"Alfred 4", "Docker", "Dropbox", "Hammerspoon"}
 
 #tell application "System Events" 
 #    get the name of every login item

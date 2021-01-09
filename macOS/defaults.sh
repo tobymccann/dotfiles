@@ -2,7 +2,6 @@
 
 main() {
     configure_plist_apps # Configure all apps whose configurations are plists
-    configure_numi
     configure_iterm2
     configure_system
     configure_dock
@@ -10,21 +9,8 @@ main() {
 }
 
 function configure_plist_apps() {
-    quit "Transmission"
     quit "The Unarchiver"
-    import_plist "org.m0k.transmission" "Transmission.plist"
     import_plist "cx.c3.theunarchiver" "The_Unarchiver.plist"
-}
-
-function configure_numi() {
-    quit "Numi"
-    # Enable show in menu bar
-    defaults write com.dmitrynikolaev.numi menuBarMode -int 1
-    # Enable alfred integration
-    defaults write com.dmitrynikolaev.numi alfredIntegration -int 1
-    # To disable welcome tours
-    defaults write com.dmitrynikolaev.numi hasLaunchedBefore -int 1
-    open "Numi"
 }
 
 function configure_iterm2() {
