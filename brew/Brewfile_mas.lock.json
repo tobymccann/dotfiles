@@ -12,7 +12,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "2.7.3",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "01befc49d56f19e58dc67fcb722fc3592a8478c0",
+        "Homebrew/homebrew-core": "3d9fb4f485c1c5c34eec63998e79c147331f5012",
         "CLT": "12.3.0.0.1.1607026830",
         "Xcode": "12.0",
         "macOS": "11.1"

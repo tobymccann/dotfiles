@@ -10,7 +10,7 @@ main() {
     clone_dotfiles_repo
     install_homebrew
     install_packages_with_brewfile
-    install_ansible
+    install_yarn_packages
     setup_symlinks # needed for setup_vim and setup_tmux
     setup_vim
     setup_tmux
@@ -99,19 +99,6 @@ function install_packages_with_brewfile() {
             exit 1
         fi
     fi
-}
-
-function install_ansible() {
-    info "Installing Ansible"
-
-    if CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip3 install --user ansible
- 1> /dev/null; then
-        success "Ansible successfully installed"
-    else
-        error "Ansible installation failed"
-        exit 1
-    fi
-
 }
 
 function install_yarn_packages() {
@@ -220,6 +207,7 @@ function setup_tmux() {
     fi
     success "tmux successfully setup"
 }
+
 function setup_symlinks() {
     APPLICATION_SUPPORT=~/Library/Application\ Support
 

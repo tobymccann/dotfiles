@@ -1,0 +1,204 @@
+{
+  "entries": {
+    "cask": {
+      "1password": {
+        "version": "7.7",
+        "options": {
+          "full_name": "1password"
+        }
+      },
+      "1password-cli": {
+        "version": "1.8.0",
+        "options": {
+          "full_name": "1password-cli"
+        }
+      },
+      "alfred": {
+        "version": "4.3,1205",
+        "options": {
+          "full_name": "alfred"
+        }
+      },
+      "cyberduck": {
+        "version": "7.7.2,33862",
+        "options": {
+          "full_name": "cyberduck"
+        }
+      },
+      "db-browser-for-sqlite": {
+        "version": "3.12.1",
+        "options": {
+          "full_name": "db-browser-for-sqlite"
+        }
+      },
+      "discord": {
+        "version": "0.0.260",
+        "options": {
+          "full_name": "discord"
+        }
+      },
+      "docker": {
+        "version": "3.0.4,51218",
+        "options": {
+          "full_name": "docker"
+        }
+      },
+      "dropbox": {
+        "version": "112.4.321",
+        "options": {
+          "full_name": "dropbox"
+        }
+      },
+      "figma": {
+        "version": "93.1.0",
+        "options": {
+          "full_name": "figma"
+        }
+      },
+      "font-hack-nerd-font": {
+        "version": "2.1.0",
+        "options": {
+          "full_name": "font-hack-nerd-font"
+        }
+      },
+      "font-fira-code-nerd-font": {
+        "version": "2.1.0",
+        "options": {
+          "full_name": "font-fira-code-nerd-font"
+        }
+      },
+      "fork": {
+        "version": "2.2",
+        "options": {
+          "full_name": "fork"
+        }
+      },
+      "google-chrome": {
+        "version": "87.0.4280.141,4280.141",
+        "options": {
+          "full_name": "google-chrome"
+        }
+      },
+      "google-cloud-sdk": {
+        "version": "latest",
+        "options": {
+          "full_name": "google-cloud-sdk"
+        }
+      },
+      "gpg-suite": {
+        "version": "2020.2",
+        "options": {
+          "full_name": "gpg-suite"
+        }
+      },
+      "hammerspoon": {
+        "version": "0.9.82",
+        "options": {
+          "full_name": "hammerspoon"
+        }
+      },
+      "hyper": {
+        "version": "3.0.2",
+        "options": {
+          "full_name": "hyper"
+        }
+      },
+      "iina": {
+        "version": "1.1.2,128",
+        "options": {
+          "full_name": "iina"
+        }
+      },
+      "insomnia": {
+        "version": "2020.5.2",
+        "options": {
+          "full_name": "insomnia"
+        }
+      },
+      "iterm2": {
+        "version": "3.4.3",
+        "options": {
+          "full_name": "iterm2"
+        }
+      },
+      "kap": {
+        "version": "3.3.2",
+        "options": {
+          "full_name": "kap"
+        }
+      },
+      "karabiner-elements": {
+        "version": "13.1.0",
+        "options": {
+          "full_name": "karabiner-elements"
+        }
+      },
+      "keybase": {
+        "version": "5.5.0-20200526170801,139bb348af",
+        "options": {
+          "full_name": "keybase"
+        }
+      },
+      "ngrok": {
+        "version": "latest",
+        "options": {
+          "full_name": "ngrok"
+        }
+      },
+      "notion": {
+        "version": "2.0.11",
+        "options": {
+          "full_name": "notion"
+        }
+      },
+      "sequel-pro": {
+        "version": "1.1.2",
+        "options": {
+          "full_name": "sequel-pro"
+        }
+      },
+      "slack": {
+        "version": "4.12.0",
+        "options": {
+          "full_name": "slack"
+        }
+      },
+      "the-unarchiver": {
+        "version": "4.2.4,131:1605625663",
+        "options": {
+          "full_name": "the-unarchiver"
+        }
+      },
+      "virtualbox": {
+        "version": "6.1.16,140961",
+        "options": {
+          "full_name": "virtualbox"
+        }
+      },
+      "visual-studio-code": {
+        "version": "1.52.1",
+        "options": {
+          "full_name": "visual-studio-code"
+        }
+      },
+      "zoom": {
+        "version": "5.4.59931.0110",
+        "options": {
+          "full_name": "zoom"
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "big_sur": {
+        "HOMEBREW_VERSION": "2.7.3",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "3d9fb4f485c1c5c34eec63998e79c147331f5012",
+        "CLT": "12.3.0.0.1.1607026830",
+        "Xcode": "12.0",
+        "macOS": "11.1"
+      }
+    }
+  }
+}
