@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 echo Configuring macOS
 source .cisupport/is_ci.sh
 
@@ -20,7 +20,7 @@ main() {
     update_login_items
 }
 
-DOTFILES_REPO=~/personal/dotfiles
+DOTFILES_REPO=~/.local/share/dotfiles
 
 function ask_for_sudo() {
     info "Prompting for sudo password"
