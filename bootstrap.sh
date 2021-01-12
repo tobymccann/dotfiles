@@ -10,7 +10,7 @@ main() {
     clone_dotfiles_repo
     install_homebrew
     install_packages_with_brewfile
-    install_pip_packages
+    install_ansible
     setup_symlinks # needed for setup_vim and setup_tmux
     setup_vim
     setup_tmux
@@ -101,14 +101,14 @@ function install_packages_with_brewfile() {
     fi
 }
 
-function install_pip_packages() {
-    info "Installing pip packages"
-    REQUIREMENTS_FILE=${DOTFILES_REPO}/pip/requirements.txt
+function install_ansible() {
+    info "Installing Ansible"
 
-    if pip3 install -r "$REQUIREMENTS_FILE" 1> /dev/null; then
-        success "pip packages successfully installed"
+    if CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip3 install --user ansible
+ 1> /dev/null; then
+        success "Ansible successfully installed"
     else
-        error "pip packages installation failed"
+        error "Ansible installation failed"
         exit 1
     fi
 
