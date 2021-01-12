@@ -10,7 +10,6 @@ main() {
     clone_dotfiles_repo
     install_homebrew
     install_packages_with_brewfile
-    change_shell_to_zsh
     install_pip_packages
     setup_symlinks # needed for setup_vim and setup_tmux
     setup_vim
