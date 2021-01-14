@@ -15,14 +15,14 @@ function configure_plist_apps() {
 
 function configure_iterm2() {
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -int 1
-    defaults write com.googlecode.iterm2 PrefsCustomFolder -string ~/personal/dotfiles/iTerm2
+    defaults write com.googlecode.iterm2 PrefsCustomFolder -string ~/.local/share/dotfiles/iTerm2
     # Don’t display the annoying prompt when quitting iTerm
     defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 }
 
 function configure_system() {
-    LOGIN_HOOK_PATH=~/personal/dotfiles/macOS/login_hook_script.sh
-    LOGOUT_HOOK_PATH=~/personal/dotfiles/macOS/logout_hook_script.sh
+    LOGIN_HOOK_PATH=~/.local/share/dotfiles/macOS/login_hook_script.sh
+    LOGOUT_HOOK_PATH=~/.local/share/dotfiles/macOS/logout_hook_script.sh
 
     # Disable Gatekeeper for getting rid of unknown developers error
     sudo spctl --master-disable

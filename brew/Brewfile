@@ -125,8 +125,6 @@ brew "wifi-password"
 brew "yarn"
 # Tracks most-used directories to make cd smarter
 brew "z"
-brew "zsh-autosuggestions"
-brew "zsh-syntax-highlighting"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
 # Mac App Store command-line interface

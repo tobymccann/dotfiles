@@ -6,104 +6,89 @@ module.exports = {
   config: {
     // choose either `'stable'` for receiving highly polished,
     // or `'canary'` for less polished but more frequent updates
-    updateChannel: "canary",
+    updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 14,
 
     // font family with optional fallbacks
-    fontFamily:
-      '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: '"Hack", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'
-    fontWeight: "normal",
+    fontWeight: 'normal',
 
     // font weight for bold characters: 'normal' or 'bold'
-    fontWeightBold: "bold",
+    fontWeightBold: 'bold',
 
     // line height as a relative unit
-    lineHeight: 1,
+    lineHeight: 1.2,
 
     // letter spacing as a relative unit
     letterSpacing: 0,
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: "rgba(248,28,229,0.8)",
+    cursorColor: 'rgba(248,28,229,0.8)',
 
     // terminal text color under BLOCK cursor
-    cursorAccentColor: "#000",
+    cursorAccentColor: '#000',
 
     // `'BEAM'` for |, `'UNDERLINE'` for _, `'BLOCK'` for █
-    cursorShape: "BLOCK",
+    cursorShape: 'BLOCK',
 
     // set to `true` (without backticks and without quotes) for blinking cursor
     cursorBlink: false,
 
     // color of the text
-    foregroundColor: "#fff",
+    foregroundColor: '#fff',
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: "#000",
+    backgroundColor: '#000',
 
     // terminal selection color
-    selectionColor: "rgba(248,28,229,0.3)",
+    selectionColor: 'rgba(248,28,229,0.3)',
 
     // border color (window, tabs)
-    borderColor: "#333",
+    borderColor: '#333',
 
     // custom CSS to embed in the main window
-    css: "",
+    css: '',
 
     // custom CSS to embed in the terminal window
-    termCSS: "",
-
-    // set custom startup directory (must be an absolute path)
-    workingDirectory: "",
+    termCSS: '',
 
     // if you're using a Linux setup which show native menus, set to false
     // default: `true` on Linux, `true` on Windows, ignored on macOS
-    showHamburgerMenu: "",
+    showHamburgerMenu: '',
 
     // set to `false` (without backticks and without quotes) if you want to hide the minimize, maximize and close buttons
     // additionally, set to `'left'` if you want them on the left, like in Ubuntu
     // default: `true` (without backticks and without quotes) on Windows and Linux, ignored on macOS
-    showWindowControls: "",
+    showWindowControls: '',
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
-    padding: "12px 14px",
+    padding: '12px 14px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
     colors: {
-      black: "#000000",
-      red: "#C51E14",
-      green: "#1DC121",
-      yellow: "#C7C329",
-      blue: "#0A2FC4",
-      magenta: "#C839C5",
-      cyan: "#20C5C6",
-      white: "#C7C7C7",
-      lightBlack: "#686868",
-      lightRed: "#FD6F6B",
-      lightGreen: "#67F86F",
-      lightYellow: "#FFFA72",
-      lightBlue: "#6A76FB",
-      lightMagenta: "#FD7CFC",
-      lightCyan: "#68FDFE",
-      lightWhite: "#FFFFFF",
-      limeGreen: "#32CD32",
-      lightCoral: "#F08080",
-    },
-
-    // Material Theme bitches
-
-    MaterialTheme: {
-      theme: "darker",
-      backgroundOpacity: "0.5",
-      accentColor: "#80CBC4",
-      vibrancy: "dark",
+      black: '#000000',
+      red: '#C51E14',
+      green: '#1DC121',
+      yellow: '#C7C329',
+      blue: '#0A2FC4',
+      magenta: '#C839C5',
+      cyan: '#20C5C6',
+      white: '#C7C7C7',
+      lightBlack: '#686868',
+      lightRed: '#FD6F6B',
+      lightGreen: '#67F86F',
+      lightYellow: '#FFFA72',
+      lightBlue: '#6A76FB',
+      lightMagenta: '#FD7CFC',
+      lightCyan: '#68FDFE',
+      lightWhite: '#FFFFFF',
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -113,37 +98,22 @@ module.exports = {
     // - Make sure to use a full path if the binary name doesn't work
     // - Remove `--login` in shellArgs
     //
-    // Windows Subsystem for Linux (WSL) - previously Bash on Windows
-    // - Example: `C:\\Windows\\System32\\wsl.exe`
-    //
-    // Git-bash on Windows
-    // - Example: `C:\\Program Files\\Git\\bin\\bash.exe`
+    // Bash on Windows
+    // - Example: `C:\\Windows\\System32\\bash.exe`
     //
     // PowerShell on Windows
     // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
-    //
-    // Cygwin
-    // - Example: `C:\\cygwin64\\bin\\bash.exe`
-    //
-    // Git Bash
-    // - Example: `C:\\Program Files\\Git\\git-cmd.exe`
-    // Then Add `--command=usr/bin/bash.exe` to shellArgs
-    shell: "",
+    shell: '',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
-    shellArgs: ["--login"],
+    shellArgs: ['--login'],
 
     // for environment variables
     env: {},
 
-    // Supported Options:
-    //  1. 'SOUND' -> Enables the bell as a sound
-    //  2. false: turns off the bell
-    bell: "SOUND",
-
-    // An absolute file path to a sound file on the machine.
-    // bellSoundURL: '/path/to/sound/file',
+    // set to `false` for no bell
+    bell: 'SOUND',
 
     // if `true` (without backticks and without quotes), selected text will automatically be copied to the clipboard
     copyOnSelect: false,
@@ -158,15 +128,16 @@ module.exports = {
     // choose either `'vertical'`, if you want the column mode when Option key is hold during selection (Default)
     // or `'force'`, if you want to force selection regardless of whether the terminal is in mouse events mode
     // (inside tmux or vim with mouse mode enabled for example).
-    macOptionSelectionMode: "vertical",
+    macOptionSelectionMode: 'vertical',
+
+    // URL to custom bell
+    // bellSoundURL: 'http://example.com/bell.mp3',
 
     // Whether to use the WebGL renderer. Set it to false to use canvas-based
     // rendering (slower, but supports transparent backgrounds)
-    webGLRenderer: true,
+    webGLRenderer: false,
 
-    // if `true` (without backticks and without quotes), Hyper will ignore ligatures provided by some fonts
-    disableLigatures: false,
-
+    activeTab: '👻',
     // for advanced config flags please refer to https://hyper.is/#cfg
   },
 
@@ -177,11 +148,13 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    "hyper-material-theme",
-    "gitrocket",
-    "hyperpower",
-    "hyper-tabs-enhanced",
-    "verminal"
+    "hyper-one-dark",
+    "hyperline",
+    "hyper-search",
+    "hyper-samewd",
+    "hyper-font-ligatures",
+    "hyperborder",
+    "hyper-active-tab"
   ],
 
   // in development, you can create a directory under
